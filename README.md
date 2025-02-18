@@ -1,5 +1,5 @@
 # Python Code Review Application 
-Python code reviewer
+
 The Python Code Reviewer is an interactive web application designed to assist Python developers in improving their code. Built using Streamlit and Google's Gemini AI, this app acts as an intelligent code review tool that provides feedback on the quality, efficiency, and correctness of Python code.
 
 Features:
