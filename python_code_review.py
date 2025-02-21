@@ -14,7 +14,7 @@ model = genai.GenerativeModel(model_name="models/gemini-2.0-flash-exp")  # Or "g
 
 # Streamlit UI
 st.title("🕵🏽‍♂️ Python Code Reviewer")
-st.write("Submit your Python code for review and get bug reports & fixes!")
+st.write("Review your Python code here to detect bugs and receive suggested fixes!")
 
 # User Input
 code_input = st.text_area("Paste your Python code here:", height=200)
