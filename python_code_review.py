@@ -1,9 +1,9 @@
-import streamlit as st  # Missing import statement
+import streamlit as st
 import os
 import google.generativeai as genai
 
-genai.configure(api_key="AIzaSyD1tUU_qj7R9rsk13hjND9P7FfLJCYf1TA")
-
+# Configure the API key
+genai.configure(api_key=os.getenv("AIzaSyD1tUU_qj7R9rsk13hjND9P7FfLJCYf1TA"))
 
 # Initialize the model
 model = genai.GenerativeModel(model_name="models/gemini-2.0-flash-exp")  # Or "gemini-2.0-flash"
@@ -35,8 +35,19 @@ if st.button("Review Code"):
             """
             response = model.generate_content(user_prompt)
 
+            # Display AI response with better formatting
             st.subheader("🔍 AI Code Review Report")
-            st.markdown(response.text) 
+
+            if response.text:
+                # Split text and extract code sections
+                sections = response.text.split("```python")  
+
+                # Display Bug Report as Markdown
+                st.markdown(sections[0], unsafe_allow_html=True)  
+
+                # Display formatted code block if AI response contains one
+                if len(sections) > 1:
+                    st.code(sections[1].split("```")[0], language="python")  
 
     else:
         st.warning("⚠️ Please enter Python code before submitting.")
