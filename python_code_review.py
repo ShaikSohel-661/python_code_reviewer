@@ -1,7 +1,3 @@
-import streamlit as st
-import google.generativeai as genai
-import os
-
 import streamlit as st  # Missing import statement
 import os
 import google.generativeai as genai
