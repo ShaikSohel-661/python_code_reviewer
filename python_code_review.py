@@ -1,8 +1,12 @@
 import streamlit as st  # Missing import statement
 import os
 import google.generativeai as genai
+from dotenv import load_dotenv
 
-genai.configure(api_key="GENAI_API_KEY")
+load_dotenv()  # Load environment variables from .env
+
+genai.configure(api_key=os.getenv("GENAI_API_KEY"))  # Fetch from env
+
 
 
 # Initialize the model
